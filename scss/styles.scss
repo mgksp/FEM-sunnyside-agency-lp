@@ -1,4 +1,5 @@
 @use "reset";
+@use "breakpoints" as *;
 
 :root {
   --soft-red: hsl(7, 99%, 70%);
@@ -66,7 +67,24 @@ p {
   text-align: center;
 }
 
+.mob-img {
+  display: block;
+
+  @include breakpoint($first) {
+    display: none;
+  }
+}
+
+.pc-img {
+  display: none;
+
+  @include breakpoint($first) {
+    display: block;
+  }
+}
+
 header {
+  height: 90vh;
   background-image: url(../images/mobile/image-header.jpg);
   background-position: center bottom;
   background-size: cover;
@@ -76,39 +94,127 @@ header {
   grid-template-rows: min-content 1fr;
   align-items: center;
 
-  height: 95vh;
+  @include breakpoint($first) {
+    background-image: url(../images/desktop/image-header.jpg);
+    align-items: start;
+    height: 100vh;
+  }
 
   .navigation {
     padding-inline: 2.4rem;
     padding-block: 3.2rem;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    @include breakpoint($first) {
+      padding-inline: 3.8rem;
+      padding-block: 4.2rem;
+    }
 
     .logo {
-      margin-right: auto;
+      img {
+        height: 100%;
+      }
+
+      @include breakpoint($first) {
+        height: 3.4rem;
+      }
+    }
+
+    .cta {
+      border: none;
+      background-color: var(--white);
+      padding: 1em 1.5em;
+      border-radius: 10rem;
+      text-transform: uppercase;
+      color: var(--dkr-desaturated-blue);
+      cursor: pointer;
+      transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+
+      &:hover {
+        background-color: hsl(0 0% 100% / 0.3);
+        color: var(--white);
+      }
+    }
+
+    .mob-menu {
+      position: absolute;
+      top: 100%;
+      display: block;
+      padding: 3.6rem;
+      background-color: var(--white);
+      width: calc(100% - 5rem);
+
+      &::after {
+        position: absolute;
+        content: "";
+        width: 3rem;
+        height: 3rem;
+        background-color: var(--white);
+        top: -2.8rem;
+        right: 0;
+        clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+      }
+
+      ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 3.2rem;
+      }
+
+      .cta {
+        background-color: var(--yellow);
+      }
     }
 
     nav {
       display: none;
+
+      @include breakpoint($first) {
+        display: flex;
+
+        ul {
+          align-items: center;
+          gap: 4.6rem;
+          color: var(--white);
+        }
+      }
     }
   }
 
   .menu-btn {
     background-color: transparent;
     border: none;
+    cursor: pointer;
+
+    @include breakpoint($first) {
+      display: none;
+    }
   }
 
-  .title {
+  @include breakpoint($first) {
+    .header-content {
+      margin-top: 8.5rem;
+    }
+  }
+
+  .header-content > .title {
     color: var(--white);
     font-size: 4rem;
     letter-spacing: 0.7rem;
     text-transform: uppercase;
     margin-bottom: 4.8rem;
-  }
 
-  img {
-    margin-inline: auto;
+    @include breakpoint($first) {
+      font-size: 5.6rem;
+      letter-spacing: 1.05rem;
+      margin-bottom: 10rem;
+    }
   }
 
   .header-content > img {
+    margin-inline: auto;
     animation: bounce infinite 600ms cubic-bezier(0.4, 1.25, 1, 2);
   }
 }
@@ -116,20 +222,54 @@ header {
 main {
   text-align: center;
 
+  @include breakpoint($first) {
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .featured-img {
     img {
       width: 100%;
     }
   }
 
+  .right {
+    grid-column: 2/3;
+  }
+
+  .left {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    justify-self: end;
+  }
+
   .featured-content {
     padding: 6.4rem 2.4rem;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 3rem;
+
+    @include breakpoint($first) {
+      padding-inline: 11rem;
+      align-items: start;
+      gap: 4.6rem;
+    }
 
     h3 {
       font-size: 3.2rem;
+      max-width: 14ch;
       color: var(--dkr-desaturated-blue);
+
+      @include breakpoint($first) {
+        font-size: 4rem;
+        letter-spacing: 0.3px;
+      }
+    }
+    p {
+      max-width: 44ch;
     }
 
     a {
@@ -137,8 +277,12 @@ main {
       text-transform: uppercase;
       font-size: 1.5rem;
       letter-spacing: 1.5px;
-      justify-self: center;
+      align-self: center;
       position: relative;
+
+      @include breakpoint($first) {
+        align-self: flex-start;
+      }
 
       &::after {
         position: absolute;
@@ -151,6 +295,11 @@ main {
         background-color: var(--clr, var(--yellow));
         border-radius: 1rem;
         opacity: 25%;
+        transition: opacity 250ms ease-in-out;
+      }
+
+      &:hover::after {
+        opacity: 100%;
       }
     }
   }
@@ -165,6 +314,11 @@ main {
 
     img {
       width: 100%;
+      @include breakpoint($first) {
+        height: 100%;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+      }
     }
 
     .content {
@@ -180,6 +334,8 @@ main {
         font-size: 1.6rem;
         letter-spacing: -0.2px;
         line-height: 2.8rem;
+        max-width: 37ch;
+        margin-inline: auto;
       }
     }
   }
@@ -201,6 +357,10 @@ main {
     display: grid;
     gap: 2rem;
 
+    @include breakpoint($first) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
     .card {
       padding: 2.4rem;
       display: grid;
@@ -211,6 +371,9 @@ main {
         width: 7rem;
         height: 7rem;
         border-radius: 50%;
+      }
+      p {
+        max-width: 34ch;
       }
 
       .client-info {
@@ -232,8 +395,14 @@ main {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 
+  @include breakpoint($first) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
   img {
     width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
   }
 }
 
@@ -241,6 +410,14 @@ footer {
   padding-block: 6.4rem;
   background-color: var(--lt-moderate-cyan);
   color: var(--dk-moderate-cyan);
+
+  a {
+    transition: color 250ms ease-in-out;
+
+    &:hover {
+      color: var(--white);
+    }
+  }
 
   & > img {
     margin-bottom: 4.2rem;
@@ -258,6 +435,7 @@ footer {
     margin-inline: auto;
     justify-content: center;
     gap: 3rem;
+    font-size: 2rem;
   }
 }
 

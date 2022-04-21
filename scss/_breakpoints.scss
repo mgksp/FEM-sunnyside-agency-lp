@@ -1,4 +1,4 @@
-$first: 50em;
+$first: 54em;
 
 @mixin breakpoint($size) {
   @media only screen and (min-width: $size) {

@@ -96,7 +96,7 @@ p {
 }
 
 header {
-  height: 90vh;
+  height: 80vh;
   background-image: url(../images/mobile/image-header.jpg);
   background-position: center bottom;
   background-size: cover;
@@ -107,6 +107,7 @@ header {
   align-items: center;
 
   @include breakpoint($first) {
+    height: 84vh;
     background-image: url(../images/desktop/image-header.jpg);
     align-items: start;
   }
@@ -137,7 +138,7 @@ header {
       border: none;
       background-color: var(--white);
       font-size: 1.5rem;
-      padding: 1em 1.5em;
+      padding: 1.8rem 3.2rem;
       border-radius: 10rem;
       text-transform: uppercase;
       color: var(--dkr-desaturated-blue);
@@ -434,6 +435,7 @@ main {
 }
 
 footer {
+  position: relative;
   padding-block: 6.4rem;
   background-color: var(--lt-moderate-cyan);
   color: var(--dk-moderate-cyan);
@@ -464,16 +466,19 @@ footer {
     gap: 3rem;
     font-size: 2rem;
   }
-}
 
-.attribution {
-  font-size: 1.1rem;
-  text-align: center;
-  margin-block: 1rem;
-  color: var(--dk-grayish-blue);
+  .attribution {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-block: 1rem;
+    color: var(--dk-grayish-blue);
 
-  a {
-    color: var(--soft-red);
-    font-size: 1.3rem;
+    a {
+      color: var(--soft-red);
+      font-size: 1.3rem;
+    }
   }
 }

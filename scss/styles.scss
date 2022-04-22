@@ -358,6 +358,10 @@ main {
 .client-testimonials {
   padding-block: 6rem;
 
+  @include breakpoint($first) {
+    padding-block: 16rem;
+  }
+
   h2 {
     text-align: center;
     margin-bottom: 3rem;
@@ -365,6 +369,10 @@ main {
     letter-spacing: 4.5px;
     font-size: 1.6rem;
     color: var(--dk-grayish-blue);
+
+    @include breakpoint($first) {
+      margin-bottom: 8rem;
+    }
   }
 
   .testimonials {
@@ -372,7 +380,8 @@ main {
     gap: 2rem;
 
     @include breakpoint($first) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, max-content);
+      place-content: center;
     }
 
     .card {
@@ -380,6 +389,10 @@ main {
       display: grid;
       place-items: center;
       gap: 3rem;
+
+      @include breakpoint($first) {
+        gap: 6.4rem;
+      }
 
       img {
         width: 7rem;

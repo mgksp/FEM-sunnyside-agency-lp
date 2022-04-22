@@ -152,6 +152,7 @@ header {
 
     .mob-menu {
       position: absolute;
+      z-index: 10;
       top: 120%;
       display: block;
       padding: 3.6rem;

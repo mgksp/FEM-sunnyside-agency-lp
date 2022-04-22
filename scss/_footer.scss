@@ -1,0 +1,50 @@
+@use "globals" as *;
+
+footer {
+  position: relative;
+  padding-block: 6.4rem;
+  background-color: var(--lt-moderate-cyan);
+  color: var(--dk-moderate-cyan);
+
+  a {
+    transition: color 250ms ease-in-out;
+
+    &:hover {
+      color: var(--white);
+    }
+  }
+
+  & > img {
+    margin-bottom: 4.2rem;
+    margin-inline: auto;
+    width: 17rem;
+  }
+
+  ul {
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 9rem;
+  }
+
+  .socials {
+    margin-inline: auto;
+    justify-content: center;
+    gap: 3rem;
+    font-size: 2rem;
+  }
+
+  .attribution {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-block: 1rem;
+    color: var(--dk-grayish-blue);
+
+    a {
+      color: var(--soft-red);
+      font-size: 1.3rem;
+    }
+  }
+}

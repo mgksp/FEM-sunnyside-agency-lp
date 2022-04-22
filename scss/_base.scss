@@ -1,0 +1,28 @@
+@use "globals" as *;
+
+body {
+  font-size: 1.8rem;
+  font-family: "Barlow", sans-serif;
+  font-weight: 600;
+  color: var(--dkr-grayish-blue);
+}
+
+p {
+  line-height: 1.6;
+}
+
+.mob-img {
+  display: block;
+
+  @include breakpoint($first) {
+    display: none;
+  }
+}
+
+.pc-img {
+  display: none;
+
+  @include breakpoint($first) {
+    display: block;
+  }
+}

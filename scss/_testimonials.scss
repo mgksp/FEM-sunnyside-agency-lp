@@ -1,0 +1,64 @@
+@use "globals" as *;
+
+.client-testimonials {
+  padding-block: 6rem;
+
+  @include breakpoint($first) {
+    padding-block: 16rem;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 4.5px;
+    font-size: 1.6rem;
+    color: var(--dk-grayish-blue);
+
+    @include breakpoint($first) {
+      margin-bottom: 8rem;
+    }
+  }
+
+  .testimonials {
+    display: grid;
+    gap: 2rem;
+
+    @include breakpoint($first) {
+      grid-template-columns: repeat(3, max-content);
+      place-content: center;
+    }
+
+    .card {
+      padding: 2.4rem;
+      display: grid;
+      place-items: center;
+      gap: 3rem;
+
+      @include breakpoint($first) {
+        gap: 6.4rem;
+      }
+
+      img {
+        width: 7rem;
+        height: 7rem;
+        border-radius: 50%;
+      }
+      p {
+        max-width: 34ch;
+      }
+
+      .client-info {
+        h3 {
+          color: var(--dkr-desaturated-blue);
+          margin-bottom: 1.2rem;
+        }
+
+        p {
+          color: var(--grayish-blue);
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@use "globals" as *;
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include breakpoint($first) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+}

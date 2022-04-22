@@ -109,7 +109,6 @@ header {
   @include breakpoint($first) {
     background-image: url(../images/desktop/image-header.jpg);
     align-items: start;
-    height: 100vh;
   }
 
   .navigation {
@@ -137,6 +136,7 @@ header {
     .cta {
       border: none;
       background-color: var(--white);
+      font-size: 1.5rem;
       padding: 1em 1.5em;
       border-radius: 10rem;
       text-transform: uppercase;

@@ -6,3 +6,14 @@
 | Mobile Version | Desktop Version | 
 |----------------|-----------------|
 | <img align="top" src="./screenshots/mobile.png" alt="mobile version" /> | <img align="top" src="./screenshots/desktop.png" alt="desktop version" /> |
+
+<table>
+  <tr>
+    <td>Mobile Version</td>
+    <td>Desktop Version</td>
+  </tr>
+  <tr>
+    <td><img align="top" src="./screenshots/mobile.png" alt="mobile version" /></td>
+    <td><img align="top" src="./screenshots/desktop.png" alt="desktop version" /></td>
+  </tr>
+ </table>

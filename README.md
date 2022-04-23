@@ -4,5 +4,5 @@
 [Live site here](https://mgksp.github.io/FEM-sunnyside-agency-lp/)
 ### Screenshots
 Mobile Version            |  Desktop Version
-:-------------------------:|:-------------------------:
+--------------------------|-------------------------
 <img src="./screenshots/mobile.png" alt="mobile version" /> | <img align="top" src="./screenshots/desktop.png" alt="desktop version" />

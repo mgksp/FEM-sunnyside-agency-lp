@@ -5,4 +5,4 @@
 ### Screenshots
 Mobile Version            |  Desktop Version
 :-------------------------:|:-------------------------:
-<img src="./screenshots/mobile.png" alt="mobile version" width="40%" /> | <img align="top" src="./screenshots/desktop.png" alt="desktop version" width="60%" />
+<img src="./screenshots/mobile.png" alt="mobile version" /> | <img align="top" src="./screenshots/desktop.png" alt="desktop version" />
